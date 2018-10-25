@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TAREA_04_G03</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_registrar">Registrarse</string>
+    <string name="txt_usuario">Usuario</string>
+    <string name="txt_clave">Contraseña</string>
+    <string name="txt_nombre">Nombre</string>
+    <string name="txt_apellido">Apellido</string>
+    <string name="txt_email">E-mail</string>
+    <string name="txt_celular">Celular</string>
+    <string name="btn_foto">Tomar Foto</string>
+    <string name="rb_genero1">Masculino</string>
+    <string name="rb_genero2">Femenino</string>
+    <string name="txt_genero">Genero</string>
+    <string name="txt_fecha">Fecha de Nacimiento (dd/mm/aaaa)</string>
+    <string name="txt_asignaturas">Asignaturas</string>
+    <string name="chbox_matematicas">Matematicas</string>
+    <string name="chbox_fisica">Fisica</string>
+    <string name="chbox_algebra">Algebra</string>
+    <string name="chbox_analisis">Analisis</string>
+    <string name="chbox_lenguaje">Lenguaje</string>
+    <string name="switch_beca">Becado</string>
+    <string name="btn_guardar">Guardar</string>
+</resources>
