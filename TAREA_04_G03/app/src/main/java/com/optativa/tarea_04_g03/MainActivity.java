@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,13 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText usuario;
     private EditText clave;
-    List<Usuario> usuarios;
-    Usuario usuarioEntrada = new Usuario();
+
+    public static List<Usuario> usuarios;
+    private Usuario usuarioEntrada;
+
     private String archivo = "miarchivo";
     private String carpeta = "/archivos/";
     File file;
     String file_path = "";
     String name = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +40,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         usuarios = new ArrayList();
+        usuarioEntrada = new Usuario();
+
+        usuario = (EditText) findViewById(R.id.txt_usuario_login);
+        clave = (EditText) findViewById(R.id.txt_clave_login);
+
+
+    }
+
+    public void ingresar(View view) {
 
         this.file_path = (Environment.getExternalStorageDirectory() + this.carpeta);
-        System.out.println(file_path);
         File localFile = new File(this.file_path);
         if (!localFile.exists()) {
             localFile.mkdir();
@@ -45,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
         this.name = (this.archivo + ".bin");
         this.file = new File(localFile, this.name);
         try {
-            //this.file.createNewFile();
-
-            FileInputStream fis = null;
+            FileInputStream fis;
             fis = new FileInputStream(this.file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             while (fis.available() > 0) {
@@ -61,27 +72,24 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-        usuario = (EditText) findViewById(R.id.txt_usuario_login);
-        clave = (EditText) findViewById(R.id.txt_clave_login);
-    }
-
-    public void ingresar(View view) {
         String usuario = this.usuario.getText().toString();
         String clave = this.clave.getText().toString();
+
         Intent siguiente;
         for (Usuario u : usuarios) {
-            if (usuario.trim().equalsIgnoreCase(usuarioEntrada.getUsuario()) && clave.trim().equalsIgnoreCase(usuarioEntrada.getClave())) {
-                siguiente = new Intent(this, RegistroActivity.class);
+            if (usuario.trim().equalsIgnoreCase(u.getUsuario()) && clave.trim().equalsIgnoreCase(u.getClave())) {
+                siguiente = new Intent(this, ListaActivity.class);
                 startActivity(siguiente);
+                finish();
             }
         }
-        Toast.makeText(this, "Datos incorrectos o usuario invalido debe REGISTRASE", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Datos incorrectos o usuario invalido debe REGISTRASE", Toast.LENGTH_SHORT).show();
     }
 
     public void registro(View view) {
         Intent siguiente;
         siguiente = new Intent(this, RegistroActivity.class);
         startActivity(siguiente);
+        finish();
     }
 }

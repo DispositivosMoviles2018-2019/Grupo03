@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Usuario implements Serializable {
@@ -14,17 +15,17 @@ public class Usuario implements Serializable {
     private String apellido;
     private String email;
     private String celular;
-    private String genero;
-    private String fecha;
+    private Integer genero;
+    private Date fecha;
     private List<String> asignaturas;
     private Boolean becado;
-    private byte [] foto;
+    private byte[] foto;
 
     public Usuario() {
         asignaturas = new ArrayList();
     }
 
-    public Usuario(String usuario, String clave, String nombre, String apellido, String email, String celular, String genero, String fecha, List<String> asignaturas, Boolean becado, byte []  foto) {
+    public Usuario(String usuario, String clave, String nombre, String apellido, String email, String celular, Integer genero, Date fecha, List<String> asignaturas, Boolean becado, byte[] foto) {
         asignaturas = new ArrayList();
         this.usuario = usuario;
         this.clave = clave;
@@ -87,19 +88,19 @@ public class Usuario implements Serializable {
         this.celular = celular;
     }
 
-    public String getGenero() {
+    public Integer getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Integer genero) {
         this.genero = genero;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -129,6 +130,6 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return usuario +"/t";
+        return usuario + "/t";
     }
 }

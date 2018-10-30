@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
 
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="368dp"
         android:layout_height="502dp"
+        android:layout_below="@+id/toolbar1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +23,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/txt_usuario"
+                android:id="@+id/txt_usuario_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -44,10 +46,10 @@
                 android:inputType="textPassword"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_usuario" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_usuario_registro" />
 
             <EditText
-                android:id="@+id/txt_nombre"
+                android:id="@+id/txt_nombre_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -70,10 +72,10 @@
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre_registro" />
 
             <EditText
-                android:id="@+id/txt_email"
+                android:id="@+id/txt_email_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -86,7 +88,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_apellido" />
 
             <EditText
-                android:id="@+id/txt_celular"
+                android:id="@+id/txt_celular_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -96,7 +98,7 @@
                 android:inputType="number"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_email_registro" />
 
             <Button
                 android:id="@+id/btn_foto"
@@ -108,7 +110,7 @@
                 android:text="@string/btn_foto"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_celular" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_celular_registro" />
 
             <ImageView
                 android:id="@+id/imag_view_foto"
@@ -116,10 +118,10 @@
                 android:layout_height="191dp"
                 android:layout_marginStart="80dp"
                 app:layout_constraintStart_toEndOf="@+id/btn_foto"
-                app:layout_constraintTop_toBottomOf="@+id/txt_celular" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_celular_registro" />
 
             <TextView
-                android:id="@+id/txt_genero"
+                android:id="@+id/txt_genero_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -135,7 +137,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_genero">
+                app:layout_constraintTop_toBottomOf="@+id/txt_genero_registro">
 
                 <RadioButton
                     android:id="@+id/rb_femenino"
@@ -175,13 +177,13 @@
 
                 <Spinner
                     android:id="@+id/spinner_dia"
-                    android:layout_width="64dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/spinner_mes"
-                    android:layout_width="64dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
@@ -194,7 +196,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txt_asignaturas"
+                android:id="@+id/txt_asignaturas_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -213,7 +215,7 @@
                 android:text="@string/chbox_analisis"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxMatematicas"
-                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas_registro" />
 
             <CheckBox
                 android:id="@+id/checkBoxMatematicas"
@@ -224,7 +226,7 @@
                 android:text="@string/chbox_matematicas"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas_registro" />
 
             <CheckBox
                 android:id="@+id/checkBoxFisica"
@@ -235,7 +237,7 @@
                 android:text="@string/chbox_fisica"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxAnalisis"
-                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_asignaturas_registro" />
 
             <CheckBox
                 android:id="@+id/checkBoxAlgebra"
@@ -285,5 +287,11 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark" />
 
 </android.support.constraint.ConstraintLayout>
