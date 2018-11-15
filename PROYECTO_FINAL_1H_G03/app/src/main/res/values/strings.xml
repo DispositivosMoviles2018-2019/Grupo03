@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PROYECTO_FINAL_1H_G03</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_registrar">Registrarse</string>
+    <string name="txt_usuario">Usuario</string>
+    <string name="txt_clave">Contraseña</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_insertar">Nuevo</string>
+    <string name="btn_modificar">Modificar</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="txt_placa">Placa</string>
+    <string name="txt_marca">Marca</string>
+    <string name="txt_fexha">Fecha de Fabricacion</string>
+    <string name="txt_costo">Costo</string>
+    <string name="txt_matriculado">Matriculado</string>
+    <string name="txt_color">Color</string>
+</resources>
