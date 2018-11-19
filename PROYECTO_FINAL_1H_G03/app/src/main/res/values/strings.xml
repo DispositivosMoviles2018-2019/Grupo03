@@ -13,5 +13,8 @@
     <string name="txt_fexha">Fecha de Fabricacion</string>
     <string name="txt_costo">Costo</string>
     <string name="txt_matriculado">Matriculado</string>
+    <string name="rb_negro">Negro</string>
+    <string name="rb_blanco">Blanco</string>
+    <string name="rb_otro">Otro</string>
     <string name="txt_color">Color</string>
 </resources>

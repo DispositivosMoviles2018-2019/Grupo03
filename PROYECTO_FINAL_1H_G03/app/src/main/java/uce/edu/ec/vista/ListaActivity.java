@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 
 import uce.edu.ec.controlador.RecyclerViewAdaptador;
 import uce.edu.ec.proyecto_final_1h_g03.R;
@@ -31,7 +33,7 @@ public class ListaActivity extends AppCompatActivity {
 
         reciclerViewVehiculo = (RecyclerView) findViewById(R.id.recycler_vehiculo);
         reciclerViewVehiculo.setLayoutManager(new LinearLayoutManager(this));
-
+        Collections.sort(MainActivity.vehiculos);
         adaptadorVehiculo = new RecyclerViewAdaptador(MainActivity.vehiculos);
         reciclerViewVehiculo.setAdapter(adaptadorVehiculo);
     }

@@ -28,7 +28,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
-    compile ('com.thoughtworks.xstream:xstream:1.4.7') {
+    implementation ('com.thoughtworks.xstream:xstream:1.4.7') {
         exclude group: 'xmlpull', module: 'xmlpull'
     }
+    implementation 'com.google.code.gson:gson:2.3.1'
 }

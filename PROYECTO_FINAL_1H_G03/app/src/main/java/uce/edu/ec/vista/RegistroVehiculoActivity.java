@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -48,7 +49,11 @@ public class RegistroVehiculoActivity extends AppCompatActivity {
     private EditText marca;
     private EditText costo;
     private Switch matriculado;
-    private EditText color;
+    //private EditText color;
+    private RadioButton rbNegro;
+    private RadioButton rbBlanco;
+    private RadioButton rbOtro;
+
     public static Boolean modificacion = false;
     private Date fechaAux = new Date();
 
@@ -63,7 +68,10 @@ public class RegistroVehiculoActivity extends AppCompatActivity {
         placa = (EditText) findViewById(R.id.txt_placa_vehiculo);
         marca = (EditText) findViewById(R.id.txt_marca_vehiculo);
         costo = (EditText) findViewById(R.id.txt_costo_vehiculo);
-        color = (EditText) findViewById(R.id.txt_color_vehiculo);
+        //color = (EditText) findViewById(R.id.txt_color_vehiculo);
+        rbNegro = (RadioButton) findViewById(R.id.rb_negro);
+        rbBlanco = (RadioButton) findViewById(R.id.rb_blanco);
+        rbOtro = (RadioButton) findViewById(R.id.rb_otro);
 
         fecha = (TextView) findViewById(R.id.txt_fecha);
         fecha.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +127,16 @@ public class RegistroVehiculoActivity extends AppCompatActivity {
                 } else {
                     this.matriculado.setChecked(false);
                 }
-                this.color.setText(v.getColor());
+                if (v.getColor().equalsIgnoreCase("Negro")) {
+                    this.rbNegro.setChecked(true);
+                    //this.rbBlanco.setChecked(false);
+                    //this.rbOtro.setChecked(false);
+                } else if (v.getColor().equalsIgnoreCase("Blanco")) {
+                    this.rbBlanco.setChecked(true);
+                } else if (v.getColor().equalsIgnoreCase("Otro")) {
+                    this.rbOtro.setChecked(true);
+                }
+                //this.color.setText(v.getColor());
                 vehiculos.remove(v);
                 break;
             }
@@ -153,15 +170,21 @@ public class RegistroVehiculoActivity extends AppCompatActivity {
                         if (this.costo.getText().toString().isEmpty()) {
                             Toast.makeText(this, "Campo Costo vacio", Toast.LENGTH_SHORT).show();
                         } else {
-                            if (this.color.getText().toString().isEmpty()) {
-                                Toast.makeText(this, "Campo Color vacio", Toast.LENGTH_SHORT).show();
+                            if (this.rbNegro.isChecked() == false && this.rbBlanco.isChecked() == false && this.rbOtro.isChecked() == false) {
+                                Toast.makeText(this, "Debe elegir un color", Toast.LENGTH_SHORT).show();
                             } else {
 
                                 String placa = this.placa.getText().toString();
                                 String marca = this.marca.getText().toString();
                                 String costo = this.costo.getText().toString();
-                                String color = this.color.getText().toString();
-
+                                String color = "Otro" ;
+                                if (this.rbNegro.isChecked()==true) {
+                                    color = "Negro";
+                                } else if (this.rbNegro.isChecked()==true) {
+                                    color = "Blanco";
+                                } else if (this.rbNegro.isChecked()==true) {
+                                    color = "Otro";
+                                }
                                 vehiculo.setFechaFabricacion(fechaAux);
 
                                 Boolean matriculado;

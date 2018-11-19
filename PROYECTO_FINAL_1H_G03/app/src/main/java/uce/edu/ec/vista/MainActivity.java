@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -19,7 +21,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             Vehiculo v = (Vehiculo) o;
             vehiculos.add(v);
         }
+        Collections.sort(vehiculos);
         if (vehiculos.isEmpty()) {
             cargar();
         }
@@ -84,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     public List<Object> leerArchivoVehiculo(String carpeta, String nombre) {
 
-        XStream xs = new XStream(new DomDriver());
+        /*XStream xs = new XStream(new DomDriver());
         final String[] PATRONES = new String[]{"dd-MMM-yyyy",
                 "dd-MMM-yy",
                 "yyyy-MMM-dd",
@@ -99,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
         xs.registerConverter(dateConverter);
         xs.alias("vehiculos", List.class);//pone autos enbes de list en el xml
         xs.alias("vehiculo", Vehiculo.class);//pone sola auto enbes de pones todo el paquete
-
+*/
+        Gson gson = new Gson();
         List<Object> objects = new ArrayList();
         Object object;
 
@@ -116,7 +123,10 @@ public class MainActivity extends AppCompatActivity {
             while ((texto = br.readLine()) != null) {
                 sb.append(texto);
             }
-            objects.addAll((List<Vehiculo>) xs.fromXML(sb.toString()));
+            Type collectionType = new TypeToken<ArrayList<Vehiculo>>() {
+            }.getType();
+            //objects.addAll((List<Vehiculo>) xs.fromXML(sb.toString()));
+            objects.addAll((List<Vehiculo>) gson.fromJson(sb.toString(), collectionType));
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
         } catch (IOException e1) {
@@ -177,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         File localFile = new File(Environment.getExternalStorageDirectory() + "/archivos/");
         file = new File(localFile, "miarchivo1.txt");
         file.delete();
-        XStream xs = new XStream(new DomDriver());
+        /*XStream xs = new XStream(new DomDriver());
         final String[] PATRONES = new String[]{"dd-MMM-yyyy",
                 "dd-MMM-yy",
                 "yyyy-MMM-dd",
@@ -193,10 +203,13 @@ public class MainActivity extends AppCompatActivity {
         xs.alias("vehiculos", List.class);//pone autos enbes de list en el xml
         xs.alias("vehiculo", Vehiculo.class);//pone sola auto enbes de pones todo el paquete
         String xml = xs.toXML(vehiculos);
-
+*/
+        Gson gson = new Gson();
+        String json = gson.toJson(vehiculos);
         FileWriter escribir = new FileWriter(file, true);
         escribir.write("");
-        escribir.write(xml);
+        //escribir.write(xml);
+        escribir.write(json);
         escribir.close();
     }
 

@@ -116,6 +116,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
                         if (vehiculo.getPlaca().equalsIgnoreCase(placa.getText().toString().substring(7, 15))) {
                             listaVehiculo.remove(vehiculo);
                             System.out.println("removido...");
+                            break;
                         }
                     }
                     MainActivity.setVehiculos(listaVehiculo);
