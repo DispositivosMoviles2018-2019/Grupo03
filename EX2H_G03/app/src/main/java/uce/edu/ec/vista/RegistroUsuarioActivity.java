@@ -37,7 +37,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             Toast.makeText(this, "Campo Usuario vacio", Toast.LENGTH_SHORT).show();
         } else {
             if (this.clave.getText().toString().length() >= 8) {
-                Pattern pattern1 = Pattern.compile("(.*[A-Z]){0,}");
+                Pattern pattern1 = Pattern.compile("(?=.*[A-Z]).+$");
                 Matcher matcher1 = pattern1.matcher(this.clave.getText().toString());
                 if (matcher1.matches()) {
                     if (this.clave.getText().toString().isEmpty()) {
