@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
             //Schedule the next update
             mHandler.postDelayed(timerTask,1000);
         }
+        ;
     };
 
     @Override
